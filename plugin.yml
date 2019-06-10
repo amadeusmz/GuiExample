@@ -1,0 +1,6 @@
+name: DitMeThangKhang
+version: 6.9
+main: net.minefs.dmtk.Lmao
+author: bomay
+commands:
+ test:
