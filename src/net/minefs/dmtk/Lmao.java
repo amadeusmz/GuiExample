@@ -16,7 +16,8 @@ public class Lmao extends JavaPlugin {
 			@EventHandler
 			public void onClick(InventoryClickEvent e) {
 				Inventory inv = e.getClickedInventory();
-				if (inv.getHolder() instanceof GuiInventory)
+
+				if (inv.getHolder() != null && inv.getHolder() instanceof GuiInventory)
 					((GuiInventory) inv.getHolder()).onClick(e);
 			}
 		}, this);
@@ -26,7 +27,7 @@ public class Lmao extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
-			KhangChoDe gui = new KhangChoDe();
+			KhangSucVat gui = new KhangSucVat(0);
 			p.openInventory(gui.getInventory());
 		}
 		return true;
