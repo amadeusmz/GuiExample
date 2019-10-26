@@ -1,5 +1,9 @@
 package net.minefs.dmtk;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -10,6 +14,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Lmao extends JavaPlugin {
+	
+	Map<String, String> map = new ConcurrentHashMap<>();
+	
 	@Override
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(new Listener() {
@@ -21,6 +28,10 @@ public class Lmao extends JavaPlugin {
 					((GuiInventory) inv.getHolder()).onClick(e);
 			}
 		}, this);
+
+		Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
+			Bukkit.broadcast("khang cho de", null);
+		});
 	}
 
 	@Override
